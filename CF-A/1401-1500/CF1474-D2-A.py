@@ -1,21 +1,12 @@
-# https://codeforces.com/problemset/problem/1473/A
+# https://codeforces.com/problemset/problem/1474/A
 
 for _ in range(int(input())):
-    n, d = map(int, input().split())
-    a = tuple(map(int, input().split()))
-    j, k = float("inf"), float("inf")
-    is_greater = False
-    for i in a:
-        if i > d:
-            is_greater = True
-        if i < j:
-            j, k = i, j
-        elif i < k:
-            k = i
-    if is_greater:
-        if j + k <= d:
-            print("YES")
+    n = int(input())
+    b = tuple(map(int, list(input())))
+    ans = "1"
+    for i in range(1, n):
+        if b[i - 1] + int(ans[-1]) == b[i] + 1:
+            ans += "0"
         else:
-            print("NO")
-    else:
-        print("YES")
+            ans += "1"
+    print(ans)
