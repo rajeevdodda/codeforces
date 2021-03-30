@@ -12,15 +12,15 @@ for i in array:
     else:
         negative += 1
 
-
 min_value = min(negative, positive)
-for i in range(m):
-    l, r = map(int, input().split())
 
-    if (r - l + 1) % 2 == 1:
+for _ in range(m):
+    l, r = map(int, input().split())
+    diff = r - l + 1
+    if diff % 2 == 1:
         print(0)
     else:
-        if (r - l + 1) // 2 > min_value:
+        if diff // 2 > min_value:
             print(0)
         else:
             print(1)
