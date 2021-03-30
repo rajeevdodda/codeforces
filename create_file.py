@@ -13,7 +13,8 @@ elif "Div. 3" in data.text:
 *_, contest, problem = url.split("/")
 print(contest, problem)
 
-codeforces_path = f'/Users/rajeevdodda/PycharmProjects/Codeforces/CF-{problem}'
+# codeforces_path = f'{os.getcwd()}/CF-{problem}'
+codeforces_path = os.path.join(os.getcwd(), "CF-" + problem)
 
 folders = os.listdir(codeforces_path)
 
@@ -22,14 +23,13 @@ for folder in folders:
     if int(a) <= int(contest) <= int(b):
         try:
             if div:
-                f = open(f"{codeforces_path}/{folder}/CF{contest}-{div}-{problem}.py", mode="a")
+                directory = os.path.join(codeforces_path, folder, "CF" + contest + "-" + div + "-" + problem)
+                f = open(directory + ".py", mode="a")
             else:
-                f = open(f"{codeforces_path}/{folder}/CF{contest}-{problem}.py", mode="a")
+                directory = os.path.join(codeforces_path, folder, "CF" + contest + "-" + problem)
+                f = open(directory + ".py", mode="a")
             f.write(f"# {url}")
             break
 
         except Exception as e:
             print(f"Unable to create file due to : {e}")
-
-
-

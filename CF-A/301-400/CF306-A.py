@@ -1,0 +1,17 @@
+# https://codeforces.com/problemset/problem/306/A
+
+n, m = map(int, input().split())
+
+a = n // m
+b = n % m
+
+while b > 0 and m > 0:
+    print(a + 1, end=" ")
+    b -= 1
+    m -= 1
+
+while m > 0:
+    print(a, end=" ")
+    m -= 1
+
+
